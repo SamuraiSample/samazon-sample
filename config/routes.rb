@@ -22,7 +22,8 @@ Rails.application.routes.draw do
       get "mypage/address/edit", :to => "users#edit_address"
       put "mypage", :to => "users#update"
       get "mypage/edit_password", :to =>"users#edit_password"
-      put "mypage/password", :to => "users#update_password"      
+      put "mypage/password", :to => "users#update_password" 
+      get  "mypage/favorite", :to => "users#favorite"
     end
   end  
   
