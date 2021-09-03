@@ -4,26 +4,21 @@ class Dashboard::ProductsController < ApplicationController
   layout "dashboard/dashboard"
 
   def index
-    sort_query = []
     @sorted = ""
+    @sort_list = Product.sort_list
 
     if params[:sort].present?
-      slices = split(' ', params[:sort])
-      sort_query[slices[0]] = slices[1]
       @sorted = params[:sort]
     end
 
     if params[:keyword].present?
       keyword = params[:keyword].strip
       @total_count = Product.search_for_id_and_name(keyword).count
-      @products = Product.search_for_id_and_name(keyword).sort_order(sort_query).display_list(params[:pages])
+      @products = Product.search_for_id_and_name(keyword).display_list(params[:pages])
     else
-      keyword = ""
       @total_count = Product.count
-      @products = Product.display_list(params[:page])
+      @products = Product.sort_order(@sorted).display_list(params[:page])
     end
-
-    @sort_list = Product.sort_list
   end
 
   def new
