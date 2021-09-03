@@ -1,5 +1,5 @@
 <div class="w-50">
-  <h1>カテゴリ情報更新</h1>
+  <h1>親カテゴリ情報更新</h1>
 
   <%= form_with model: @major_category, url: dashboard_major_category_path(@major_category), local: true do |f| %>
     <div class="form-inline mt-4 mb-4 row">
@@ -15,5 +15,5 @@
     <%= f.submit "更新", class: "w-25 btn samazon-submit-button" %>
   <% end %>
 
-  <div class="mt-4"><%= link_to "カテゴリー一覧に戻る",  dashboard_major_categories_path %></div>
+  <div class="mt-4"><%= link_to "親カテゴリ一覧に戻る",  dashboard_major_categories_path %></div>
 </div>
