@@ -31,7 +31,7 @@ class ShoppingCartsController < ApplicationController
   
   private
     def product_params
-      params.permit(:product_id, :product, :price, :quantity)
+      params.permit(:product_id, :price, :quantity)
     end  
   
     def set_cart
